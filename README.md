@@ -16,5 +16,5 @@ Table of content:
 
 Google Colab version:
 1. [LABS 07 : Answering Business Question - Google Colab](https://github.com/project303/DEV122---Yava-Essentials-/blob/master/YAVA%20Essentials_LABS%2007_%20Answering%20Business%20Question.ipynb) 
-2. [LABS 07 : Answering Business Question - Google Colab](https://github.com/project303/DEV122---Yava-Essentials-/blob/master/YAVA%20Essentials_LABS%2007_%20Answering%20Business%20Question.ipynb) 
+2. [LABS 08 : Machine Learning With Spark](https://github.com/project303/DEV122---Yava-Essentials-/blob/master/YAVA%20Essentials_LABS%2008_%20Machine%20Learning%20With%20Spark.ipynb) 
 
