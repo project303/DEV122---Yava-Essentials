@@ -1,0 +1,46 @@
+<workflow-app xmlns="uri:oozie:workflow:1.0" name="Simple ETL">
+  <start to="download-data-node"/>
+
+  <action name="download-data-node">
+    <shell xmlns="uri:oozie:shell-action:1.0">
+      <job-tracker>192.168.56.117:8050</job-tracker>
+      <name-node>hdfs://192.168.56.117:8020</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>default</value>
+        </property>
+      </configuration>
+      <exec>01-load_data.sh</exec>
+      <env-var>HADOOP_USER_NAME=${wf:user()}</env-var>
+      <file>/user/${wf:user()}/script/01-load_data.sh</file>
+    </shell>
+    <ok to="hive-script"/>
+    <error to="kill_job"/>
+  </action>
+
+  <action name="hive-script">
+    <shell xmlns="uri:oozie:shell-action:1.0">
+      <job-tracker>192.168.56.117:8050</job-tracker>
+      <name-node>hdfs://192.168.56.117:8020</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>default</value>
+        </property>
+      </configuration>
+      <exec>02-hive_action.sh</exec>
+      <env-var>HADOOP_USER_NAME=${wf:user()}</env-var>
+      <file>/user/${wf:user()}/script/02-hive_action.sh</file>
+    </shell>
+    <ok to="end"/>
+    <error to="kill_job"/>
+  </action>
+
+
+  <kill name="kill_job">
+    <message>download-data-node action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+  </kill>
+
+  <end name="end"/>
+</workflow-app>
