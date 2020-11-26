@@ -12,5 +12,5 @@ if [ -f /tmp/${HADOOP_USER_NAME}/02-create_table.hql ]; then
     rm /tmp/${HADOOP_USER_NAME}/02-create_table.hql
 else
 #    hdfs dfs -touchz /user/${HADOOP_USER_NAME}/fail_five_oozie_${HADOOP_USER_NAME}
-    hdfs dfs -touchz hdfs dfs -touchz /user/${HADOOP_USER_NAME}/fail_hive_action_${HADOOP_USER_NAME}
+    hdfs dfs -touchz /user/${HADOOP_USER_NAME}/fail_hive_action_${HADOOP_USER_NAME}
 fi
