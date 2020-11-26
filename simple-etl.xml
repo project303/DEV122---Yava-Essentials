@@ -3,8 +3,8 @@
 
   <action name="download-data-node">
     <shell xmlns="uri:oozie:shell-action:1.0">
-      <job-tracker>192.168.56.117:8050</job-tracker>
-      <name-node>hdfs://192.168.56.117:8020</name-node>
+      <job-tracker>yavam-001.labs247.com:8050</job-tracker>
+      <name-node>hdfs://nn</name-node>
       <configuration>
         <property>
           <name>mapred.job.queue.name</name>
@@ -21,8 +21,8 @@
 
   <action name="hive-script">
     <shell xmlns="uri:oozie:shell-action:1.0">
-      <job-tracker>192.168.56.117:8050</job-tracker>
-      <name-node>hdfs://192.168.56.117:8020</name-node>
+      <job-tracker>yavam-001.labs247.com:8050</job-tracker>
+      <name-node>hdfs://nn/</name-node>
       <configuration>
         <property>
           <name>mapred.job.queue.name</name>
