@@ -1,5 +1,5 @@
 <workflow-app xmlns="uri:oozie:workflow:1.0" name="Simple ETL">
-  <start to="hive2-node"/>
+  <start to="download-data-node"/>
 
   <action name="download-data-node">
     <shell xmlns="uri:oozie:shell-action:1.0">
@@ -35,37 +35,6 @@
     </shell>
     <ok to="end"/>
     <error to="kill_job"/>
-  </action>
-
-  <action name="hive2-node">
-    <hive2 xmlns="uri:oozie:hive2-action:0.2">
-      <job-tracker>yavam-001.labs247.com:8050</job-tracker>
-      <name-node>hdfs://nn/</name-node>
-      <configuration>
-        <property>
-          <name>mapred.job.queue.name</name>
-          <value>default</value>
-        </property>
-        <property>
-          <name>hadoop.proxyuser.oozie.hosts</name>
-          <value>*</value>
-        </property>
-        <property>
-          <name>hadoop.proxyuser.oozie.groups</name>
-          <value>*</value>
-        </property>
-        <property>
-          <name>oozie.use.system.libpath</name>
-          <value>true</value>
-        </property>
-      </configuration>
-      <jdbc-url>jdbc:hive2://yavam-001.labs247.com:2181,yavam-002.labs247.com:2181,yavaw-001.labs247.com:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2</jdbc-url>
-      <password>=${wf:user()}</password>
-      <script>02-create_table.hql</script>
-      <param>db_name=${wf:user()}</param>
-    </hive2>
-    <ok to="end"/>
-    <error to="fail_hive"/>
   </action>
 
   <kill name="kill_job">
