@@ -7,7 +7,7 @@ hdfs dfs -get /user/${HADOOP_USER_NAME}/script/02-create_table.hql /tmp/${HADOOP
 #hdfs dfs -touchz /user/${HADOOP_USER_NAME}/download_hive_oozie_${HADOOP_USER_NAME}
 
 if [ -f /tmp/${HADOOP_USER_NAME}/02-create_table.hql ]; then
-    beeline -n yava -p yava247 -f /tmp/${HADOOP_USER_NAME}/02-create_table.hql --hivevar db_name=${HADOOP_USER_NAME}
+    beeline -n ${HADOOP_USER_NAME} -p ${HADOOP_USER_NAME} -f /tmp/${HADOOP_USER_NAME}/02-create_table.hql --hivevar db_name=${HADOOP_USER_NAME}
     hdfs dfs -touchz /user/${HADOOP_USER_NAME}/hive-script-done_${HADOOP_USER_NAME}
     rm /tmp/${HADOOP_USER_NAME}/02-create_table.hql
 else
