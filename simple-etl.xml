@@ -57,7 +57,7 @@
       </configuration>
       <jdbc-url>jdbc:hive2://yavam-001.labs247.com:2181,yavam-002.labs247.com:2181,yavaw-001.labs247.com:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2</jdbc-url>
       <password>=${wf:user()}</password>
-      <script>/user/${wf:user()}/script/02-table_create.hql</script>
+      <script>02-table_create.hql</script>
       <param>db_name=${wf:user()}</param>
     </hive2>
     <ok to="end"/>
