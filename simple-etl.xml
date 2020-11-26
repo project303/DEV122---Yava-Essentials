@@ -56,7 +56,7 @@
         </property>
         <property>
           <name>oozie.libpath</name>
-          <value>hdfs://nn/user/oozie/share/lib/lib_20200811052330/hive</value>
+          <value>hdfs://nn/user/oozie/share/lib/lib_20200811052330</value>
         </property>
         <property>
           <name>oozie.use.system.libpath</name>
